@@ -1,59 +1,64 @@
+//var / const maken.
 const proBtn = document.getElementById('pro');
 const ambivalentBtn = document.getElementById('ambivalent');
 const contraBtn = document.getElementById('contra');
 const statments = document.getElementById('statements');
 const statment = document.getElementById('statement');
 const question = document.getElementById('question');
-const back = document.getElementById('back')
+const back = document.getElementById('back');
 var i = 0;
-var answer = ["","","","","","","","","","",];
-var results = [{"PVV": 0},{ "SP": 0},{ "D66": 0},{ "GroenLinks": 0},{ "Partij voor de Dieren": 0},{ "50Plus": 0},{ "VNL": 0},{ "Nieuwe Wegen": 0},{ "Forum voor Democratie": 0},{ "De Burger Beweging": 0},{ "Vrijzinnige Partij": 0},{ "Piratenpartij": 0},{  "Libertarische Partij": 0},{ "Lokaal in de Kamer": 0},{ "VVD": 0},{ "PvdA": 0},{ "CDA": 0},{ "ChristenUnie": 0},{ "SGP": 0},{ "OndernemersPartij": 0},{ "DENK": 0},{ "Artikel 1": 0}];
+var answer = [];
+var results = []
+//een for loop waar ik de rusults arrey aanmaakt 
+for (var s = 0; s < parties.length; s++) {
+	results[s] = {"name": parties[s].name, "points": 0};
+
+}
+//plaats de de vraag en title. 
 function setStatment() {
 	statement.innerHTML = subjects[i].title;
 	question.innerHTML = subjects[i].statement;
 }
+//veranderd de vraag en houd bij waar je bent in met je vragen.
 function changeStatement(counting) {
-	if(counting == "up"){
-		i++;
-		console.log(i);
-		setStatment();
-	} else {
-		i--;
-		setStatment();
+	if (subjects[i]) {
+		if (counting == "up" && i != subjects.length - 1) {
+			i++;
+			setStatment();
+		} else if (i != 0) {
+			i--;
+			setStatment();
+		}
+		
 	}
 }
-function addPro(){
-	answer[i] = "pro";
-	console.log(answer[i]);
-	changeStatement("up");
+//vult je antwoord in al je er op clicked
+function addAnswer(Answer, Direction) {
+		answer[i] = Answer;
+		console.log(answer[i]);
+		changeStatement(Direction);
+	
 }
-function addAmbivalen(){
-	answer[i] = "ambivalen";
-	console.log(answer[i]);
-	changeStatement("up");
-}
-function addContra(){
-	answer[i] = "contra";
-	console.log(answer[i]);
-	changeStatement("up");
-}
-function moveBack(){
-	console.log(answer);
-	changeStatement("down");
-}
-function checkresulte(){
-	for (var k = 0; k < 12; k++) {
-		for (var z = 0; z < 22; z++) {
-			if (answer[k] === subjects[k].parties[z].position) {
-				for(var l = 0; l < 22; l++){
-					if (subjects[k].parties[z].name === results[l]){
-						results[l]++
+//check voor welke partij je moet gaan stemmen volgens deze stemwijzer.
+function checkresults() {
+	var result = [];
+	for (var i = 0; i < answer.length; i++) {
+		for (var k = 0; k < results.length; k++) {
+			if (answer[i] == subjects[i].parties[k].position) {
+				for (var f = 0; f < results.length; f++) {
+					if (subjects[i].parties[k].name == results[f].name) {
+						results[f].points++;
 					}
 				}
 			}
 		}
 	}
+
+	for (var g = 0; g < results.length; g++) {
+		result[g] = results[g].points;
+	}
+	result.sort();
+	console.log(result);
 }
 
-//subjects[0].parties[a].name
-console.log(results);
+setStatment();

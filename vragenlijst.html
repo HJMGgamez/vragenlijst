@@ -6,11 +6,11 @@
 <body>
 	<h1 id="statement"></h1>
 	<p id="question"></p>
-	<button id="pro" onclick="addPro()">eens</button>
-	<button id="ambivalent" onclick="addAmbivalen()">geen van bijde</button>
-	<button id="contra" onclick="addContra()">oneens</button>
-	<button id="statements">statments</button>
-	<button id="back" onclick="moveBack()">terug</button>
+	<button id="pro" onclick="addAnswer('pro', 'up')">eens</button>
+	<button id="ambivalent" onclick="addAnswer('ambivalent', 'up')">geen van bijde</button>
+	<button id="contra" onclick="addAnswer('contra', 'up')">oneens</button>
+	<button id="statements" onclick="checkresults()">statments</button>
+	<button onclick="addAnswer(null, 'down')">terug</button>
 	<script src="http://stemwijzer.dvc-icta.nl/data.js"></script>
 	<script src="js/main.js"></script>
 </body>
