@@ -14,7 +14,7 @@ for (var s = 0; s < parties.length; s++) {
 	results[s] = {"name": parties[s].name, "points": 0};
 
 }
-//plaats de de vraag en title. 
+//plaats de de vraag en title in html. 
 function setStatment() {
 	statement.innerHTML = subjects[i].title;
 	question.innerHTML = subjects[i].statement;
@@ -53,12 +53,6 @@ function checkresults() {
 			}
 		}
 	}
-
-	for (var g = 0; g < results.length; g++) {
-		result[g] = results[g].points;
-	}
-	result.sort();
-	console.log(result);
 }
 
 setStatment();
