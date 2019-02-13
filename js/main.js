@@ -8,7 +8,7 @@ const question = document.getElementById('question');
 const back = document.getElementById('back');
 var i = 0;
 var answer = [];
-var results = []
+var results = [];
 //een for loop waar ik de rusults arrey aanmaakt 
 for (var s = 0; s < parties.length; s++) {
 	results[s] = {"name": parties[s].name, "points": 0};
@@ -53,6 +53,10 @@ function checkresults() {
 			}
 		}
 	}
+// sorteerd de array op punten 
+results.sort(function(a,b) {
+    return b["points"]-a["points"]
+});
 }
 
 setStatment();
