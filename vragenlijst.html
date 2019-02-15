@@ -2,15 +2,22 @@
 <html>
 <head>
 	<title>test</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-	<h1 id="statement"></h1>
-	<p id="question"></p>
-	<button id="pro" onclick="addAnswer('pro', 'up')">eens</button>
-	<button id="ambivalent" onclick="addAnswer('ambivalent', 'up')">geen van bijde</button>
-	<button id="contra" onclick="addAnswer('contra', 'up')">oneens</button>
-	<button id="statements" onclick="checkresults()">statments</button>
-	<button onclick="addAnswer(null, 'down')">terug</button>
+	<div>
+		<h1 id="title">Stemwijzer</h1>
+		<p id="text">dit is een stemwijzer voor welke partij we voor je aanraden</p>
+		<button id="start_button" onclick="startForm();">start</button>
+		<h1 id="statement" style="display: none;"></h1>
+		<p id="question" style="display: none;"></p>
+		<button id="pro" onclick="addAnswer('pro', 'up')" style="display: none;">eens</button>
+		<button id="ambivalent" onclick="addAnswer('ambivalent', 'up')" style="display: none;">geen van bijde</button>
+		<button id="contra" onclick="addAnswer('contra', 'up')" style="display: none;">oneens</button>
+		<button onclick="addAnswer(null, 'down')" id="back" style="display: none;">terug</button>
+		<button onclick="addAnswer(null, 'up')" id="skip" style="display: none;">sla over</button>
+		<button id="check" onclick="checkresults()" style="display: none;">check</button>
+	</div>
 	<script src="http://stemwijzer.dvc-icta.nl/data.js"></script>
 	<script src="js/main.js"></script>
 </body>
