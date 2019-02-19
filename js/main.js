@@ -1,4 +1,6 @@
 //var / const maken.
+const top3 = document.getElementById('top3');
+const resultlist = document.getElementById('resultlist');
 const skip = document.getElementById('skip');
 const title = document.getElementById('title');
 const text = document.getElementById('text');
@@ -10,10 +12,13 @@ const statment = document.getElementById('statement');
 const question = document.getElementById('question');
 const back = document.getElementById('back');
 const check = document.getElementById('check');
+var displayToggles = document.getElementsByClassName('displayToggleTrigger');
 //I is waar ik mee bij hou waar ik ben met de vragen
 var i = 0;
 var answer = [];
 var results = [];
+var node = document.createElement("LI");                 
+
 //een for loop waar ik de rusults arrey aanmaakt 
 for (var s = 0; s < parties.length; s++) {
 	results[s] = {"name": parties[s].name, "points": 0};
@@ -22,8 +27,9 @@ for (var s = 0; s < parties.length; s++) {
 //start de stemwijzer
 function startForm() {
 	setStatment();
-	hidestartpage();
-	showForm();
+	displayToggle();
+	// hidestartpage();
+	// showForm();
 }
 //plaats de de vraag en title in html. 
 function setStatment() {
@@ -72,27 +78,40 @@ function checkresults() {
 	console.log(results);
 }
 //hide the start button
-function hidestartpage() {
-	startBtn.style.display = 'none';
-	text.style.display = 'none';
-	title.style.display = 'none';
+// function hidestartpage() {
+// 	startBtn.style.display = 'none';
+// 	text.style.display = 'none';
+// 	title.style.display = 'none';
+// }
+// function showForm() {
+// 	proBtn.style.display = '';
+// 	ambivalentBtn.style.display = '';
+// 	contraBtn.style.display = '';
+//  	statment.style.display = '';
+// 	question.style.display = '';
+// 	back.style.display = '';
+// 	skip.style.display = '';
+// }
+// function hideForm() {
+// 	proBtn.style.display = 'none';
+// 	ambivalentBtn.style.display = 'none';
+// 	contraBtn.style.display = 'none';
+//  	statment.style.display = 'none';
+// 	question.style.display = 'none';
+// 	back.style.display = 'none';
+// 	skip.style.display = 'none';
+// 	check.style.display = '';
+// }
+
+function displayToggle(){
+	for (var i = 0; i < displayToggles.length; i++) {
+		displayToggles[i].classList.toggle('displayToggle');
+	}
 }
-function showForm() {
-	proBtn.style.display = '';
-	ambivalentBtn.style.display = '';
-	contraBtn.style.display = '';
- 	statment.style.display = '';
-	question.style.display = '';
-	back.style.display = '';
-	skip.style.display = '';
-}
-function hideForm() {
-	proBtn.style.display = 'none';
-	ambivalentBtn.style.display = 'none';
-	contraBtn.style.display = 'none';
- 	statment.style.display = 'none';
-	question.style.display = 'none';
-	back.style.display = 'none';
-	skip.style.display = 'none';
-	check.style.display = '';
+
+function showresult() {
+	top3.style.display = '';
+	resultlist.style.display = '';       
+	node.appendChild(textnode);                              
+	top3.appendChild(node); 
 }

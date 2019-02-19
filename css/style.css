@@ -69,6 +69,7 @@ body {
 	max-height: 56px;
 }
 #main {
+	background-color: white;
 	max-width: 1164px;
 	padding-left: 116.2px;
 	padding-right: 116.2px;
@@ -80,4 +81,23 @@ body {
 }
 #commentTitle {
 	margin: 0px;
+}
+#text {
+	font-size: 20px;
+    font-weight: bold;
+}
+#start_button {
+	background-color: #555555;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 12px 28px;
+	color: white;
+	border-radius: 12px;
+}
+#start_button:hover {
+  background-color: #008CBA;
+  color: white;
+}
+.displayToggle {
+	display: block !important; 
 }
