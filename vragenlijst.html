@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 	<title>stemwijzer</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
@@ -9,14 +10,15 @@
 		<img class="displayToggleTrigger displayToggle" id="logo_stemwijzer" src="https://tweedekamer2017.stemwijzer.nl/public/gfx/logo-stemwijzer.svg" style="display: none;">
 		<p class="displayToggleTrigger displayToggle" id="text" style="display: none;">dit is een stemwijzer voor welke partij we voor je aanraden</p>
 		<button class="displayToggleTrigger displayToggle" id="start_button" onclick="startForm();" style="display: none;">start</button>
-		<h1 class="displayToggleTrigger" id="statement" style="display: none;"></h1>
+		<h1 class="displayToggleTrigger" id="statement" style="display: none;"></h1><br>
 		<p class="displayToggleTrigger" id="question" style="display: none;"></p>
-		<button class="displayToggleTrigger" id="pro" onclick="addAnswer('pro', 'up')" style="display: none;">eens</button>
-		<button class="displayToggleTrigger" id="ambivalent" onclick="addAnswer('ambivalent', 'up')" style="display: none;">geen van bijde</button>
-		<button class="displayToggleTrigger" id="contra" onclick="addAnswer('contra', 'up')" style="display: none;">oneens</button>
-		<button class="displayToggleTrigger" onclick="addAnswer(null, 'down')" id="back" style="display: none;">terug</button>
-		<button class="displayToggleTrigger" onclick="addAnswer(null, 'up')" id="skip" style="display: none;">sla over</button>
-		<button class="displayToggleTrigger" id="check" onclick="checkresults()" style="display: none;">check</button>
+	</br>
+		<button class="displayToggleTrigger buttons" onclick="addAnswer(null, 'down')" id="back" style="display: none;">terug</button>
+		<button class="displayToggleTrigger buttons" id="pro" onclick="addAnswer('pro', 'up')" style="display: none;">eens</button>
+		<button class="displayToggleTrigger buttons" id="ambivalent" onclick="addAnswer('ambivalent', 'up')" style="display: none;">geen van bijde</button>
+		<button class="displayToggleTrigger buttons" id="contra" onclick="addAnswer('contra', 'up')" style="display: none;">oneens</button>
+		<button class="displayToggleTrigger buttons" onclick="addAnswer(null, 'up')" id="skip" style="display: none;">sla over</button>
+		<button class="buttons" id="check" onclick="checkresults()" style="display: none;">check</button>
 		<ul id="top3" style="display: none;">
 		</ul>
 		<ul id="resultlist" style="display: none;">	
@@ -24,7 +26,7 @@
 		<ul id="checkbox" style="display: none;">
 		</ul>
 	</div>
-	<script src="http://stemwijzer.dvc-icta.nl/data.js"></script>
+	<script src="js/data.js"></script>
 	<script src="js/main.js"></script>
 </body>
 </html>

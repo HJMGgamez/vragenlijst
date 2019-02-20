@@ -18,6 +18,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	font-family: 'Montserrat', sans-serif;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -67,6 +68,7 @@ body {
 #logo_stemwijzer {
 	max-width: 331px;
 	max-height: 56px;
+	margin-bottom: 30px;
 }
 #main {
 	background-color: white;
@@ -74,10 +76,11 @@ body {
 	padding-left: 116.2px;
 	padding-right: 116.2px;
 	padding-top: 70px;
-	padding-bottom: 35px;
+	padding-bottom: 35px
 }
 #title {
 	margin: 0px;
+	margin-bottom: 30px;
 }
 #commentTitle {
 	margin: 0px;
@@ -85,6 +88,7 @@ body {
 #text {
 	font-size: 20px;
     font-weight: bold;
+    margin-bottom: 30px;
 }
 #start_button {
 	background-color: #555555;
@@ -99,5 +103,27 @@ body {
   color: white;
 }
 .displayToggle {
-	display: block !important; 
+	display: inline-block !important; 
+}
+.displayToggle:nth-child(2) {
+	display: block !important;
+}
+.buttons{
+	background-color: #555555;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 12px 28px;
+	color: white;
+	border-radius: 12px;
+}
+#question{
+	font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 250px;
+}
+#statement{
+	font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #01B4DC;
 }

@@ -1,4 +1,6 @@
 //var / const maken.
+const logo = document.getElementById('logo_stemwijzer');
+const checkbox = document.getElementById('checkbox');
 const top3 = document.getElementById('top3');
 const resultlist = document.getElementById('resultlist');
 const skip = document.getElementById('skip');
@@ -28,19 +30,27 @@ for (var s = 0; s < parties.length; s++) {
 function startForm() {
 	setStatment();
 	displayToggle();
-	// hidestartpage();
-	// showForm();
 }
 //plaats de de vraag en title in html. 
 function setStatment() {
-	statement.innerHTML = subjects[i].title;
-	question.innerHTML = subjects[i].statement;
-
+	if (i != subjects.length) {
+		statement.innerHTML = subjects[i].title;
+		question.innerHTML = subjects[i].statement;
+	} else{
+		check.classList.add('displayToggleTrigger');
+		checkbox.classList.add('displayToggleTrigger');
+		top3.classList.add('displayToggleTrigger');
+		resultlist.classList.add('displayToggleTrigger');
+		text.classList.remove('displayToggleTrigger');
+		logo.classList.remove('displayToggleTrigger');
+		startBtn.classList.remove('displayToggleTrigger');
+		displayToggle();
+	}
 }
 //veranderd de vraag en houd bij waar je bent in met je vragen.
 function changeStatement(counting) {
 	if (subjects[i]) {
-		if (counting == "up" && i != subjects.length - 1) {
+		if (counting == "up") {
 			i++;
 			setStatment();
 		} else if (i != 0) {
@@ -51,21 +61,27 @@ function changeStatement(counting) {
 	}
 }
 //vult je antwoord in al je er op clicked
-function addAnswer(Answer, Direction) {
-		answer[i] = Answer;
+function addAnswer(answers, Direction) {
+		answer[i] = {"answer": answers, "mass": 0};
 		console.log(answer);
 		changeStatement(Direction);
 	
 }
 //check voor welke partij je moet gaan stemmen volgens deze stemwijzer.
 function checkresults() {
+	check.classList.remove('displayToggle');
 	var result = [];
 	for (var i = 0; i < answer.length; i++) {
 		for (var k = 0; k < results.length; k++) {
 			if (answer[i] == subjects[i].parties[k].position) {
 				for (var f = 0; f < results.length; f++) {
 					if (subjects[i].parties[k].name == results[f].name) {
-						results[f].points++;
+						if (anwers[i].mass != 0) {
+							results[f].points++;
+						} else {
+							results[f].points++;
+							results[f].points++;
+						}
 					}
 				}
 			}
@@ -76,39 +92,13 @@ function checkresults() {
 	    return b["points"]-a["points"]
 	});
 	console.log(results);
+	resultlist();
 }
-//hide the start button
-// function hidestartpage() {
-// 	startBtn.style.display = 'none';
-// 	text.style.display = 'none';
-// 	title.style.display = 'none';
-// }
-// function showForm() {
-// 	proBtn.style.display = '';
-// 	ambivalentBtn.style.display = '';
-// 	contraBtn.style.display = '';
-//  	statment.style.display = '';
-// 	question.style.display = '';
-// 	back.style.display = '';
-// 	skip.style.display = '';
-// }
-// function hideForm() {
-// 	proBtn.style.display = 'none';
-// 	ambivalentBtn.style.display = 'none';
-// 	contraBtn.style.display = 'none';
-//  	statment.style.display = 'none';
-// 	question.style.display = 'none';
-// 	back.style.display = 'none';
-// 	skip.style.display = 'none';
-// 	check.style.display = '';
-// }
-
 function displayToggle(){
 	for (var i = 0; i < displayToggles.length; i++) {
 		displayToggles[i].classList.toggle('displayToggle');
 	}
 }
-
 function showresult() {
 	top3.style.display = '';
 	resultlist.style.display = '';       
